@@ -4,14 +4,11 @@ A powerful React Native plugin that integrates Google ML Kit with react-native-v
 
 ## Installation
 
-
 ```sh
 npm install react-native-face-detector
 ```
 
-
 ## Usage
-
 
 ```js
 import { multiply } from 'react-native-face-detector';
@@ -20,7 +17,6 @@ import { multiply } from 'react-native-face-detector';
 
 const result = multiply(3, 7);
 ```
-
 
 ## Contributing
 

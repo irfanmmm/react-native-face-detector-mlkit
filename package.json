@@ -1,5 +1,5 @@
 {
-  "name": "react-native-face-detector",
+  "name": "react-native-face-detector-mlkit",
   "version": "0.1.0",
   "description": "A powerful React Native plugin that integrates Google ML Kit with react-native-vision-camera to enable real-time on-device machine learning features such as face detection, text recognition, barcode scanning, and custom ML model inference — all with high performance and low latency.This library provides a seamless interface for capturing frames directly from the camera and processing them using ML Kit APIs, making it ideal for face recognition, liveness detection, document scanning, and smart vision-based apps.",
   "main": "./lib/module/index.js",
@@ -91,6 +91,7 @@
   "workspaces": [
     "example"
   ],
+  "nativePackage": "com.facedetector.XyzFrameProcessorPluginPackage",
   "packageManager": "yarn@3.6.1",
   "jest": {
     "preset": "react-native",
@@ -106,14 +107,17 @@
   },
   "release-it": {
     "git": {
-      "commitMessage": "chore: release ${version}",
-      "tagName": "v${version}"
+      "requireCleanWorkingDir": true
     },
     "npm": {
-      "publish": true
+      "publish": true,
+      "access": "public"
     },
     "github": {
       "release": true
+    },
+    "hooks": {
+      "before:npm": "yarn prepare"
     },
     "plugins": {
       "@release-it/conventional-changelog": {
@@ -160,5 +164,9 @@
     "languages": "kotlin-objc",
     "type": "turbo-module",
     "version": "0.54.7"
+  },
+  "dependencies": {
+    "react-native-vision-camera": "^4.7.2",
+    "react-native-worklets-core": "^1.6.2"
   }
 }
