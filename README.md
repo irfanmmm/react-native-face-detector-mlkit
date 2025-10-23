@@ -1,7 +1,8 @@
 # react-native-face-detector-mlkit
 
-A powerful React Native plugin that integrates Google ML Kit with react-native-vision-camera to enable real-time on-device machine learning features such as face detection, text recognition, barcode scanning, and custom ML model inference — all with high performance and low latency.This library provides a seamless interface for capturing frames directly from the camera and processing them using ML Kit APIs, making it ideal for face recognition, liveness detection, document scanning, and smart vision-based apps.
+A powerful React Native plugin that integrates Google ML Kit with react-native-vision-camera to enable real-time on-device machine learning features such as face detection, text recognition, barcode scanning, and custom ML model inference — all with high performance and low latency.
 
+This library provides a seamless interface for capturing frames directly from the camera and processing them using ML Kit APIs, making it ideal for face recognition, liveness detection, document scanning, and smart vision-based apps.
 
 ## 🚀 Installation
 
@@ -11,31 +12,36 @@ npm i react-native-face-detector-mlkit
 yarn add react-native-face-detector-mlkit
 ```
 
-⚙️ Android Setup
+## ⚙️ Android Setup
 
 To integrate the native frame processor package on Android, follow these steps:
 
-1. Open MainApplication.java
+### 1. Open MainApplication.java
 
 Navigate to:
-
+```
 android/app/src/main/java/com/yourapp/MainApplication.java
+```
 
-
-2. Import the Package
+### 2. Import the Package
 
 Add the following import statement at the top of the file:
 
-import com.facedetector.XyzFrameProcessorPluginPackage
+```java
+import com.facedetector.XyzFrameProcessorPluginPackage;
+```
 
-3. Register the Package
+### 3. Register the Package
 
-Inside the getPackages() method, add the following line:
+Inside the `getPackages()` method, add the following line:
 
-add(new XyzFrameProcessorPluginPackage())
+```java
+packages.add(new XyzFrameProcessorPluginPackage());
+```
 
-Example:
+**Example:**
 
+```java
 @Override
 protected List<ReactPackage> getPackages() {
   @SuppressWarnings("UnnecessaryLocalVariable")
@@ -44,8 +50,11 @@ protected List<ReactPackage> getPackages() {
   packages.add(new XyzFrameProcessorPluginPackage());
   return packages;
 }
+```
 
-📸 Usage Example
+## 📸 Usage Example
+
+```javascript
 import React, { useMemo } from 'react';
 import { Camera, useCameraDevices } from 'react-native-vision-camera';
 import { useFrameProcessor } from 'react-native-vision-camera';
@@ -62,7 +71,7 @@ export default function FaceDetectorScreen() {
     'worklet';
     const faces = pluggin.call(frame);
     console.log(faces);
-    console.log('Detected faces lantmarks:', faces);
+    console.log('Detected faces landmarks:', faces);
   }, []);
 
   if (!device) return null;
@@ -85,23 +94,32 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });
+```
 
-🧠 Features
+## 🧠 Features
 
-✅ Real-time on-device ML processing
-✅ Seamless integration with react-native-vision-camera
-✅ Works with Reanimated 3 and Worklets Core
-✅ Lightweight and optimized for performance
-✅ Supports both Android and iOS
+✅ Real-time on-device ML processing  
+✅ Seamless integration with react-native-vision-camera  
+✅ Works with Reanimated 3 and Worklets Core  
+✅ Lightweight and optimized for performance  
+✅ Supports both Android and iOS  
 
-🔧 Requirements
+## 🔧 Requirements
 
-React Native ≥ 0.72
+- React Native ≥ 0.72
+- react-native-vision-camera ≥ 3.0
+- react-native-reanimated ≥ 3.0
+- react-native-worklets-core ≥ 1.0
+- Android API Level ≥ 23
 
-react-native-vision-camera ≥ 3.0
+## 📄 License
 
-react-native-reanimated ≥ 3.0
+[Add your license here]
 
-react-native-worklets-core ≥ 1.0
+## 🤝 Contributing
 
-Android API Level ≥ 23
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📧 Support
+
+For issues and questions, please open an issue on the GitHub repository.
